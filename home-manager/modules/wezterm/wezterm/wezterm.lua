@@ -12,7 +12,7 @@ config.tab_bar_at_bottom = true
 
 config.font_size = 12
 
-config.color_scheme = "onedarkpro_onedark_dark"
+config.color_scheme = "onedark"
 
 config.enable_wayland = false;
 

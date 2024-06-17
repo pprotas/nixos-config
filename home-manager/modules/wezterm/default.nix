@@ -3,7 +3,7 @@
     enable = true;
     enableZshIntegration = true;
     colorSchemes = {
-      colors = {
+      onedark = {
         ansi = [
           "#000000"
           "#ef596f"
@@ -30,12 +30,6 @@
         foreground = "#abb2bf";
         selection_bg = "#d55fde";
         selection_fg = "#abb2bf";
-        indexed = { };
-      };
-
-      metadata = {
-        name = "onedarkpro_onedark_dark";
-        origin_url = "https://github.com/olimorris/onedarkpro.nvim";
       };
     };
   };
