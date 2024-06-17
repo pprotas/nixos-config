@@ -10,7 +10,7 @@ config.status_update_interval = 2000
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 
-config.font_size = 16
+config.font_size = 12
 
 config.color_scheme = "onedarkpro_onedark_dark"
 

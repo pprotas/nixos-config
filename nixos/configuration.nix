@@ -32,14 +32,19 @@
     LC_TIME = "nl_NL.UTF-8";
   };
 
-  services.xserver.enable = true;
-
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "pawel";
+  };
 
   services.xserver = {
-    layout = "us";
-    xkbVariant = "";
+    enable = true;
+    xkb = {
+      variant = "";
+      layout = "us";
+    };
+    displayManager.gdm.enable = true;
+    desktopManager.gnome.enable = true;
   };
 
   services.printing.enable = true;
@@ -63,9 +68,6 @@
     ];
   };
 
-
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = "pawel";
 
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
