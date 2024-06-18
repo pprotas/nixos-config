@@ -45,6 +45,8 @@
     };
     displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
+    autoRepeatDelay = 200;
+    autoRepeatInterval = 10;
   };
 
   services.printing.enable = true;
@@ -77,6 +79,8 @@
   environment.systemPackages = with pkgs; [
     firefox
     discord
+    obsidian
+    spotify
 
     cargo
     go
@@ -93,9 +97,8 @@
     wl-clipboard
     tmux-mem-cpu-load
     vesktop
+    logiops
 
-    pop-launcher
-    gnomeExtensions.pop-shell
     gnome.gnome-tweaks
   ];
 
