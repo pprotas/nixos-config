@@ -1,0 +1,5 @@
+[submodule "nvim"]
+  path = home-manager/modules/neovim/nvim
+  url = git@github.com:pprotas/nvim.git
+  branch = main
+  update = rebase
