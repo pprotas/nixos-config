@@ -10,6 +10,12 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos";
+  networking.nameservers = [ "1.1.1.1" "1.0.0.1" ];
+  networking.firewall = {
+    allowedUDPPorts = [ 5353 ];
+    allowedUDPPortRanges = [{ from = 32768; to = 61000; }];
+    allowedTCPPorts = [ 8010 ];
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   environment.sessionVariables.SSH_AUTH_SOCK = "/home/pawel/.1password/agent.sock";
@@ -61,11 +67,15 @@
     pulse.enable = true;
   };
 
+  services.mullvad-vpn.enable = true;
+  services.mullvad-vpn.package = pkgs.mullvad-vpn;
+
+  services.avahi.enable = true;
 
   users.users.pawel = {
     isNormalUser = true;
     description = "Pawel Protas";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "tty" "rtkit" ];
     packages = with pkgs; [
     ];
   };
@@ -78,9 +88,20 @@
 
   environment.systemPackages = with pkgs; [
     firefox
+    chromium
     discord
     obsidian
     spotify
+    qbittorrent
+    calibre
+    vlc
+
+    burpsuite
+    zap
+    nmap
+    httpie-desktop
+
+    bitwig-studio
 
     cargo
     go
@@ -116,6 +137,12 @@
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
+  };
+
+  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
   };
 
   # This value determines the NixOS release from which the default
